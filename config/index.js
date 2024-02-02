@@ -2,12 +2,16 @@
 // Template version: 1.1.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
+const fs = require('fs')
+
 const path = require('path')
+
+//comment this to disable proxy middleware
 const commonProxy = {
-  onProxyReq: (proxyReq, req, res) => {
-    proxyReq.setHeader('Referer', process.env.TARGET)
-  },
-  target: process.env.TARGET,
+  // onProxyReq: (proxyReq, req, res) => {
+  //   proxyReq.setHeader('Referer', process.env.TARGET || "http://127.0.0.1:8000/")
+  // },
+  target: process.env.TARGET || "http://127.0.0.1:8000",
   changeOrigin: true
 }
 

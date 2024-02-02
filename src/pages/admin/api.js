@@ -319,6 +319,7 @@ function ajax (url, method, options) {
       params,
       data
     }).then(res => {
+      console.log(res.json())
       // API正常返回(status=20x), 是否错误通过有无error判断
       if (res.data.error !== null) {
         Vue.prototype.$error(res.data.data)

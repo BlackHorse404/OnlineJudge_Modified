@@ -48,13 +48,13 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 app.use(hotMiddleware)
 
 // proxy api requests
-// Object.keys(proxyTable).forEach(function (context) {
-//   let options = proxyTable[context]
-//   if (typeof options === 'string') {
-//     options = { target: options }
-//   }
-//   app.use(proxyMiddleware(options.filter || context, options))
-// })
+Object.keys(proxyTable).forEach(function (context) {
+  let options = proxyTable[context]
+  if (typeof options === 'string') {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(options.filter || context, options))
+})
 
 // handle fallback for HTML5 history API
 const rewrites = {
